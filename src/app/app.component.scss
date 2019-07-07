@@ -1,0 +1,49 @@
+.container1 {
+  display: grid;
+  grid-template-columns: [first] 150px  [line3] auto [col4-start] 150px  [end];
+  grid-template-rows: [row1-start] 150px [row1-end] 150px [second-line] auto [third-line] 150px [last-line];
+}
+.header{
+  grid-column: 1/end;
+  grid-row: row1-start / row1-end;
+
+}
+.footer{
+  grid-column: 1 / end;
+  grid-row: third-line / 4;
+
+}
+.sideA{
+  grid-area: 2 / 1/ third-line / 2;
+}
+.sideB{
+  grid-area: 2 / col4-start / third-line/ 4;
+}
+.dropdown1{
+  grid-area: row1-end/ line3 / second-line / col4-start;
+  margin: 20px 20px 10px 20px;
+
+}
+
+.grid{
+  margin: 10px 20px 20px 20px;
+}
+.country{
+  margin-top: 20px;
+  display: flex;
+  flex-direction: row;
+  color: white;
+  justify-content:center;
+}
+td{
+border: 4px solid black;
+}
+td.tdy:hover{background-color: yellow;}
+tr.try:hover{
+  background-color: white;
+  cursor: context-menu;
+}
+tr.try:active {
+  background-color: yellow;
+
+}

@@ -8,8 +8,11 @@ import {map} from 'rxjs/operators';
   providedIn: 'root'
 })
 export class HttpService {
-
+  urlC = 'https://bolt-flight-api.herokuapp.com/api/countriesToFlight';
+  urlC1 = 'https://bolt-flight-api.herokuapp.com/api/availableFlightByCountry';
+  urlC2 = 'https://bolt-flight-api.herokuapp.com/api/ToggleSelectedFlight';
   url = 'https://upstartt3.herokuapp.com/';
+
 
   urlContacts = '/contact';
 
@@ -42,6 +45,18 @@ export class HttpService {
   getAll() {
     return this.http.get(this.url + '/all')
       .pipe(map((res) => res));
+  }
+
+  getAllCountries() {
+    return this.http.get(this.urlC).pipe(map((res) => res));
+  }
+
+  getCountryInf(id) {
+    return this.http.get(this.urlC1 + '/' + id).pipe(map((res) => res));
+  }
+
+  chooseCountry(data) {
+    return this.http.post(this.urlC2, data).pipe(map((res) => res));
   }
 }
 

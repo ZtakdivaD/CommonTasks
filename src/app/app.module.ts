@@ -20,15 +20,19 @@ import {DetailsComponent} from './details/details.component';
 import {TableComponent} from './table/table.component';
 
 import {MatMomentDateModule, MomentDateAdapter} from '@angular/material-moment-adapter';
+import {PaginatorPipe} from './Shared/pipes/paginator.pipe';
+import {OrderModule} from 'ngx-order-pipe';
+import {FilterPipe} from './Shared/pipes/filter.pipe';
 
+//npm install ngx-order-pipe --save
 
 @NgModule({
   declarations: [
-    AppComponent, DetailsComponent, TableComponent
+    AppComponent, DetailsComponent, TableComponent, PaginatorPipe,FilterPipe
   ],
   imports: [BrowserAnimationsModule, MatButtonModule, MatIconModule, MatInputModule, FormsModule, MatProgressBarModule,
     BrowserModule,
-    AppRoutingModule, MatSnackBarModule,
+    AppRoutingModule, MatSnackBarModule, OrderModule,
     MatSortModule,
     MatTableModule, HttpClientModule,
     MatPaginatorModule, MatProgressSpinnerModule, MatCheckboxModule, ReactiveFormsModule, MatDatepickerModule, MatMomentDateModule

@@ -1,1 +1,47 @@
-<router-outlet></router-outlet>
+
+
+<!--<router-outlet></router-outlet>-->
+<div class="container1">
+  <div class="header" style="background-color: #0c5460;"></div>
+  <div class="sideA" style="background-color: lawngreen;"></div>
+  <div class="dropdown1" style="background-color: #005cbf">
+
+    <table class="country">
+      <tr style="cursor: pointer" *ngFor="let d of countries"><div   (click)="getCountryInf(d)">{{d}}</div></tr>
+    </table>
+
+  </div>
+  <div class="grid" style="background-color: #721c24">
+    <input type="text" [placeholder]="currentField" [(ngModel)]="searchingText">
+    <table style="width: 100%">
+      <tr >
+        <td class="tdy" (click)="searchField(f)" style="cursor: zoom-in" (click)="sort(f)" *ngFor="let f of countryKeys ">{{f}}</td>
+      </tr>
+      <tr (click)="toDo(a)" class="try" *ngFor="let a of countriesInf | paginator:paginatorPageIndex:paginatorPageSize:countriesInf.length| filter:currentField:searchingText">
+        <td >{{a.id}}</td>
+        <td>{{a.destination}}</td>
+        <td>{{a.arrive_at| date:'dd/MM/yyyy_H:mm'}}</td>
+        <td>{{a.price}}</td>
+         <td>{{a.isSelected}}</td>
+        <td>{{a.departure | date:'dd/MM/yyyy_H:mm'}}</td>
+        <td>{{a.country}}</td>
+
+
+      </tr>
+
+    </table>
+    <mat-paginator
+      *ngIf="countriesInf[0]!=0"
+      [(length)]="countriesInf.length"
+      [(pageIndex)]="paginatorPageIndex"
+      [pageSizeOptions]="[2,3,5]"
+      pageSize="3"
+      (page)="uploadTable($event)"
+    >
+
+    </mat-paginator>
+  </div>
+  <div class="sideB" style="background-color: #8fd19e;"></div>
+  <div class="footer" style="background-color: #7abaff;"></div>
+</div>
+
